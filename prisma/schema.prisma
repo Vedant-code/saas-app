@@ -37,18 +37,21 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String
-  email         String?   @unique
-  emailVerified DateTime?
-  password      String
-  linkedIn      String
-  website       String?
-  license       String
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
+  id               String      @id @default(cuid())
+  name             String
+  email            String?     @unique
+  emailVerified    DateTime?
+  password         String
+  linkedIn         String
+  website          String?
+  license          String
+  image            String?
+  accounts         Account[]
+  sessions         Session[]
+  registrationPage Int         @default(0)
+  credits          Int         @default(0)
 }
+
 
 model VerificationToken {
   identifier String
@@ -72,12 +75,33 @@ model MyDocuments {
   createdAt DateTime @default(now())
 }
 
-model Lead {
-  id          Int      @id @default(autoincrement())
-  country     String
-  industry    String
-  platform    String
-  revenue     String
-  technology  String
+model leads {
+  id                     Int       @id @default(autoincrement())
+  employees              Int
+  description            String
+  platform               String
+  revenue                String
+  country                String
+  company_address        String
+  technologies           String
+  first_name             String
+  last_name              String
+  title                  String
+  email                  String
+  person_linkedin_url    String
+  departments            String
+  other_emails           String
+  company_name_for_emails String
+  corporate_phone        String
+  industry               String
+  company_linkedin_url   String
+  facebook_url           String
+  tiktok_url             String
+  city                   String
+  state                  String
+  total_funding          String
+  latest_funding         String
+  domain                 String
+  latest_funding_amount  String
 }
 
